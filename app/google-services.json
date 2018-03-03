@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "439078122643",
+    "firebase_url": "https://gaintrain-16.firebaseio.com",
+    "project_id": "gaintrain-16",
+    "storage_bucket": "gaintrain-16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439078122643:android:54561f704f9e9528",
+        "android_client_info": {
+          "package_name": "xmts.gaintrain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439078122643-4q3mgb2oafe7j33ielfkt4v67adtp663.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xmts.gaintrain",
+            "certificate_hash": "a80581964296c5eda9a0db941a89206b6bfb440a"
+          }
+        },
+        {
+          "client_id": "439078122643-mdqimhphdp12m98s4rnqut8dce40g1lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7W1Ptyyvsce5ctTbiV-MpFWM0tt8vWZg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439078122643-mdqimhphdp12m98s4rnqut8dce40g1lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
