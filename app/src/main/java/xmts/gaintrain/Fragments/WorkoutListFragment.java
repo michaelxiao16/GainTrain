@@ -21,7 +21,7 @@ import xmts.gaintrain.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.onClickListener{
+public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.WorkoutListAdapterListener{
 
     private List<Workout> workouts;
     private RecyclerView mRecyclerView;
@@ -53,7 +53,7 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
 
     //interface for talking to adapter
     @Override
-    public void onClick() {
+    public void onWorkoutClick() {
         //TODO: get data from listener, send to fragment
 
     }
@@ -78,7 +78,7 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.workout_list_recycler_view);
 
-        WorkoutListRecyclerViewAdapter adapter = new WorkoutListRecyclerViewAdapter(workouts);
+        WorkoutListRecyclerViewAdapter adapter = WorkoutListRecyclerViewAdapter.newInstance(workouts, this);
         mRecyclerView.setAdapter(adapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
