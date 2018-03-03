@@ -11,4 +11,8 @@
     <string name="not_applicable">N/A</string>
 
     <drawable name="actionbar_background">@color/colorPrimary</drawable>
+    <string name="days_on_train">Days on the train: </string>
+    <string name="workouts_this_week">Workouts this week: </string>
+    <string name="average_workout_length">Average Workout Length: </string>
+    <string name="total_volume">Total Volume: </string>
 </resources>
