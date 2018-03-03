@@ -6,23 +6,28 @@ package xmts.gaintrain.Models;
  */
 
 public class Passenger {
-    public int daysOnTrain;
-    public int workoutsThisWeek;
-    public int avgWorkoutLength;
-    public int totalVolumne;
+    private String username;
+
+    private int daysOnTrain;
+    private int workoutsThisWeek;
+    private int avgWorkoutLength;
+    private int totalVolumne;
 
     public Passenger(){
         //Default constructor required;
-        this(0,0,0,0);
+        this("Passenger 1",0,0,0,0);
     }
 
-    public Passenger(int days, int workouts, int length, int volume) {
+    public Passenger(String username, int days, int workouts, int length, int volume) {
+        this.username = username;
         this.daysOnTrain =  days;
         this.workoutsThisWeek = workouts;
         this.avgWorkoutLength = length;
         this.totalVolumne = volume;
     }
-
+    public String getUsername() {
+        return username;
+    }
     public int getDaysOnTrain() {
         return daysOnTrain;
     }
@@ -35,4 +40,5 @@ public class Passenger {
     public int getTotalVolumne() {
         return totalVolumne;
     }
+
 }
