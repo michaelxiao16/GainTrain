@@ -42,10 +42,10 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     /**
-     * interface to be impleneted by fragment,
+     * interface to be implemented by fragment,
      */
     public interface WorkoutListAdapterListener {
-        void onWorkoutClick();
+        void onWorkoutClick(Workout w);
     }
 
     //ViewHolder methods overriden
@@ -58,14 +58,6 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((WorkoutListViewHolder) holder).bindData(workoutList.get(position));
-//        WorkoutListViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    WorkoutListRecyclerViewAdapter.
-//                }
-//            }
-//        })
     }
 
     @Override
@@ -88,9 +80,8 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mListener.onWorkoutClick();
-//                    Toast toast=Toast.makeText( "Hello Javatpoint",Toast.LENGTH_SHORT);
-//                    toast.show();
+                    int position = getAdapterPosition();
+                    mListener.onWorkoutClick(workoutList.get(position));
                 }
             });
         }

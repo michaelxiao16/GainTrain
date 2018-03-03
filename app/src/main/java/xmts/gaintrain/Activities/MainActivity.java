@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import xmts.gaintrain.Fragments.StatisticsFragment;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     @Override
     public void onWorkoutSelected(Workout w) {
         //TODO: switch fragments to workout fragment view
+        Toast.makeText(MainActivity.this, w.toString(), Toast.LENGTH_SHORT).show();
         //switchToWorkout();
     }
 
@@ -73,8 +75,10 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutTab() {
-
-        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(TestUtils.getTestWorkoutList());
+        //Workout fragment has a list of workouts and a listener
+        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(
+            TestUtils.getTestWorkoutList(),
+            this);
 
         getSupportFragmentManager()
                 .beginTransaction()
