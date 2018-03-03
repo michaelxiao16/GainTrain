@@ -11,7 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import xmts.gaintrain.Fragments.WorkoutListFragment;
+import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutTab() {
 
-        WorkoutListFragment workoutListFragment = new WorkoutListFragment();
+        ArrayList<Workout> workouts = new ArrayList<>(2);
+        workouts.add(new Workout("Workout 1"));
+        workouts.add(new Workout("Workout 2"));
+
+        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(workouts);
 
         getSupportFragmentManager()
                 .beginTransaction()
