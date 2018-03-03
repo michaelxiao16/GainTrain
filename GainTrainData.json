@@ -1,0 +1,27 @@
+{
+    "Exercises": [
+      {
+        "name": "Bench Press",
+        "body_parts": [
+            {
+                "name": "chest"
+            },
+            {
+                "name": "tricep"
+            }
+        ],
+        "type": "bar",
+        "difficulty": "hard"
+      },
+      {
+        "name": "Squat",
+        "body_parts": [
+            {
+                "name": "legs"
+            }
+        ],
+        "type": "bar",
+        "difficulty": "hard"
+      }
+    ]
+}

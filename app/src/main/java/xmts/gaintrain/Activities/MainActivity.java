@@ -9,8 +9,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import xmts.gaintrain.Fragments.StatisticsFragment;
+import java.util.ArrayList;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
+import xmts.gaintrain.Models.Exercise;
+import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
+import xmts.gaintrain.Utils.TestUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         setupActionbar();
 
-//        switchToWorkoutTab();
+        // Chooses the home tab upon startup
+        switchToHomeTab();
     }
 
     //region [ Activity Helpers ] ================================= //
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutTab() {
 
-        WorkoutListFragment workoutListFragment = new WorkoutListFragment();
+        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(TestUtils.getTestWorkoutList());
 
         getSupportFragmentManager()
                 .beginTransaction()
