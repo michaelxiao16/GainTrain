@@ -76,9 +76,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutTab() {
         //Workout fragment has a list of workouts and a listener
-        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(
-            TestUtils.getTestWorkoutList(),
-            this);
+        WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(this);
 
         getSupportFragmentManager()
                 .beginTransaction()

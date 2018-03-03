@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,19 +13,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.database.SnapshotParser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import xmts.gaintrain.Adapters.WorkoutListRecyclerViewAdapter;
 import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
+import xmts.gaintrain.Utils.FirebaseUtils;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.WorkoutListAdapterListener{
 
-    private List<Workout> workouts;
     private RecyclerView mRecyclerView;
+    private FirebaseRecyclerAdapter mAdapter;
     private WorkoutListFragmentListener mListener;
 
     public WorkoutListFragment() {
@@ -48,19 +58,29 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
         mListener.onWorkoutSelected(w);
         //TODO: actually get data from listener, send to fragment, not this hack
 
-
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mAdapter.stopListening();
+    }
+
     // new instance method for propagation of fragment listener up to activity
-    public static WorkoutListFragment newInstance(List<Workout> workouts, WorkoutListFragmentListener listener) {
+    public static WorkoutListFragment newInstance(WorkoutListFragmentListener listener) {
         Bundle args = new Bundle();
         WorkoutListFragment fragment = new WorkoutListFragment();
         fragment.setArguments(args);
-        fragment.workouts = workouts;
         if (listener != null) {
             fragment.mListener = listener;
         }
-        return fragment;
-    }
+        return fragment; }
 
     //Create and inflate recycler view, set the adapter to it
     @Override
@@ -72,12 +92,28 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
         // Create the recycler view and adapter for it
         mRecyclerView = (RecyclerView) view.findViewById(R.id.workout_list_recycler_view);
 
-        WorkoutListRecyclerViewAdapter adapter = WorkoutListRecyclerViewAdapter.newInstance(workouts, this);
-        mRecyclerView.setAdapter(adapter);
+        Query query = FirebaseDatabase.getInstance()
+                .getReference().child("workouts");
+
+        FirebaseRecyclerOptions<Workout> options = new FirebaseRecyclerOptions.Builder<Workout>()
+                .setQuery(query, new SnapshotParser<Workout>() {
+                    @NonNull
+                    @Override
+                    public Workout parseSnapshot(@NonNull DataSnapshot snapshot) {
+                        Workout workout = new Workout(snapshot);
+                        return workout;
+                    }
+                })
+                .build();
+
+        mAdapter = WorkoutListRecyclerViewAdapter.newInstance(this, options);
+        mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
+
+        mRecyclerView.getAdapter().notifyDataSetChanged();
 
         return view;
     }

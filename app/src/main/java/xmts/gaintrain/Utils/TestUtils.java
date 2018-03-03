@@ -46,8 +46,8 @@ public class TestUtils {
 
         ArrayList<Workout> workouts = new ArrayList<>(2);
 
-        workouts.add(new Workout("Workout 1", oneWorkoutExercise));
-        workouts.add(new Workout("Workout 2", twoWorkoutExercises));
+        workouts.add(new Workout("Workout 1", null, oneWorkoutExercise));
+        workouts.add(new Workout("Workout 2", null, twoWorkoutExercises));
 
         return workouts;
     }
