@@ -14,9 +14,8 @@ import com.github.mikephil.charting.charts.BarChart;
 import xmts.gaintrain.R;
 
 public class Statistics extends Fragment {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        //TODO: implement statistic fragment onCreate
+    public Statistics() {
+        // Required empty public constructor
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class Statistics extends Fragment {
     }
     @Override
     public void onPause() {
+        super.onPause();
         //TODO: implement statistic fragment onPause
     }
 

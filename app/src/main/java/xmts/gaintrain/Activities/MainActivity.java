@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import xmts.gaintrain.Fragments.Statistics;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
 import xmts.gaintrain.R;
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    switchToHomeTab();
                     return true;
                 case R.id.bottom_nav_bar_workout:
                     switchToWorkoutTab();
@@ -72,5 +74,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //endregion
+
+    private void switchToHomeTab() {
+        Statistics statisticsFragment = new Statistics();
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_frame_layout, statisticsFragment)
+            .commit();
+
+    }
 
 }
