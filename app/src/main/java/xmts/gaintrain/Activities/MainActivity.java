@@ -1,12 +1,17 @@
 package xmts.gaintrain.Activities;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import xmts.gaintrain.Fragments.WorkoutListFragment;
 import xmts.gaintrain.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,13 +25,11 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.bottom_nav_bar_workout:
-                    mTextMessage.setText(R.string.title_workout);
+                    switchToWorkoutTab();
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -41,11 +44,30 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        setupActionbar();
+
+//        switchToWorkoutTab();
     }
 
+    //region [ Activity Helpers ] ================================= //
+    private void setupActionbar() {
+        Toolbar tb = findViewById(R.id.app_toolbar);
+        tb.setTitle(R.string.app_name);
+        setSupportActionBar(tb);
+    }
+
+    //endregion
 
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutTab() {
+
+        WorkoutListFragment workoutListFragment = new WorkoutListFragment();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_activity_frame_layout, workoutListFragment)
+                .commit();
 
     }
 
