@@ -23,4 +23,12 @@ public class WorkoutExercise {
     public void setExerciseSets(List<ExerciseSet> exerciseSets) {
         this.exerciseSets = exerciseSets;
     }
+
+    @Override
+    public String toString() {
+        if (exerciseSets != null) {
+            return exerciseSets.size() + " x " + exerciseSets.get(0).getExercise().getExerciseName();
+        }
+        return super.toString();
+    }
 }

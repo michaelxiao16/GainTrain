@@ -8,15 +8,17 @@ package xmts.gaintrain.Models;
 
 public class ExerciseSet {
     private Exercise exercise;
-    private int rep;
-
+    private int repsExpected;
     // lbs by default
-    private double weight;
+    private double weightExpected;
 
-    public ExerciseSet(Exercise exercise, int rep, double weight) {
+    private int repsPerformed = -1;
+    private double weightPerformed = -1;
+
+    public ExerciseSet(Exercise exercise, int repsExpected, double weightExpected) {
         this.exercise = exercise;
-        this.rep = rep;
-        this.weight = weight;
+        this.repsExpected = repsExpected;
+        this.weightExpected = weightExpected;
     }
 
     public Exercise getExercise() {
@@ -27,19 +29,49 @@ public class ExerciseSet {
         this.exercise = exercise;
     }
 
-    public int getRep() {
-        return rep;
+    public int getRepsExpected() {
+        return repsExpected;
     }
 
-    public void setRep(int rep) {
-        this.rep = rep;
+    public void setRepsExpected(int repsExpected) {
+        this.repsExpected = repsExpected;
     }
 
-    public double getWeight() {
-        return weight;
+    public double getWeightExpected() {
+        return weightExpected;
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWeightExpected(double weightExpected) {
+        this.weightExpected = weightExpected;
+    }
+
+    public int getRepsPerformed() {
+        return repsPerformed;
+    }
+
+    public void setRepsPerformed(int repsPerformed) {
+        this.repsPerformed = repsPerformed;
+    }
+
+    public double getWeightPerformed() {
+        return weightPerformed;
+    }
+
+    public void setWeightPerformed(double weightPerformed) {
+        this.weightPerformed = weightPerformed;
+    }
+
+    @Override
+    public String toString() {
+        if (exercise != null) {
+            if (repsPerformed >= 0 && weightPerformed >= 0 ) {
+                return repsPerformed + "/" +  repsExpected + " x "
+                        + weightPerformed + "/" + weightExpected + " of " + exercise.toString()
+                        + " performed";
+            }
+
+            return repsExpected + " x " + weightExpected + " of " + exercise.toString();
+        }
+        return super.toString();
     }
 }
