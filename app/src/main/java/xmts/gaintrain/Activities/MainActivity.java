@@ -3,9 +3,11 @@ package xmts.gaintrain.Activities;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     private TextView mTextMessage;
     private Passenger mCurrentPassenger = new Passenger();
+
 
     @Override
     public void onWorkoutSelected(Workout w) {
@@ -70,8 +73,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        setupActionbar();
+        setupActionBar();
 
         // Chooses the home tab upon startup
         switchToHomeTab();
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     }
 
     //region [ Activity Helpers ] ================================= //
-    private void setupActionbar() {
+    private void setupActionBar() {
         Toolbar tb = findViewById(R.id.app_toolbar);
         tb.setTitle(R.string.app_name);
         setSupportActionBar(tb);
@@ -94,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
         //Workout fragment has a list of workouts and a listener
         WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(this);
 
+        getSupportFragmentManager().popBackStack();
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_activity_frame_layout, workoutListFragment)
@@ -103,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     //endregion
     private void switchToHomeTab() {
         StatisticsFragment statisticsFragment = new StatisticsFragment();
+        getSupportFragmentManager().popBackStack();
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_activity_frame_layout, statisticsFragment)
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     private void switchToProfileTab() {
         ProfileFragment profileFragment = ProfileFragment.newInstance(mCurrentPassenger);
+        getSupportFragmentManager().popBackStack();
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_activity_frame_layout, profileFragment)
@@ -126,7 +132,17 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_activity_frame_layout, workoutFragment)
+            .addToBackStack("Workout")
             .commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
 }

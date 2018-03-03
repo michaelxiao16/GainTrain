@@ -49,7 +49,6 @@ public class WorkoutRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        Log.w("TAGURSELF", "" + workout);
         return workout.getWorkoutExercises().size();
     }
 
