@@ -22,7 +22,7 @@ import xmts.gaintrain.Utils.TestUtils;
 public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListFragmentListener {
 
     private TextView mTextMessage;
-    private Passenger mCurrentPassenger;
+    private Passenger mCurrentPassenger = new Passenger();
 
     @Override
     public void onWorkoutSelected(Workout w) {

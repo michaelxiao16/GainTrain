@@ -20,7 +20,6 @@ import xmts.gaintrain.R;
  */
 public class ProfileFragment extends android.support.v4.app.Fragment {
 
-    private String mUsername;
     private Passenger mPassenger;
 
 
@@ -54,7 +53,7 @@ public class ProfileFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView username = (TextView) view.findViewById(R.id.profileUserName);
-        username.setText("CHICKEN");
+        username.setText(mPassenger.getUsername());
         return view;
     }
 
