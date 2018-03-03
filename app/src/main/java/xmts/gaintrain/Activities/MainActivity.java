@@ -1,17 +1,14 @@
 package xmts.gaintrain.Activities;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import xmts.gaintrain.Fragments.Statistics;
+import xmts.gaintrain.Fragments.StatisticsFragment;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
 import xmts.gaintrain.R;
 
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     //endregion
 
     private void switchToHomeTab() {
-        Statistics statisticsFragment = new Statistics();
+        StatisticsFragment statisticsFragment = new StatisticsFragment();
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_activity_frame_layout, statisticsFragment)
