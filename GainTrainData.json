@@ -110,52 +110,52 @@
         "workout_exercises_1": {
             "exercise_set_1": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135"
+                "rep_expected": 8,
+                "weight_expected": 135
             },
             "exercise_set_2": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135"
+                "rep_expected": 8,
+                "weight_expected": 135
             },
             "exercise_set_3": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135"
+                "rep_expected": 8,
+                "weight_expected": 135
             }
         },
         "workout_exercises_2": {
             "exercise_set_1": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105"
+                "rep_expected": 8,
+                "weight_expected": 105
             },
             "exercise_set_2": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105"
+                "rep_expected": 8,
+                "weight_expected": 105
             },
             "exercise_set_3": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105"
+                "rep_expected": 8,
+                "weight_expected": 105
             }
         },
         "workout_exercises_3": {
             "exercise_set_1": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225"
+                "rep_expected": 8,
+                "weight_expected": 225
             },
             "exercise_set_2": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225"
+                "rep_expected": 8,
+                "weight_expected": 225
             },
             "exercise_set_3": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225"
+                "rep_expected": 8,
+                "weight_expected": 225
             }
         }
     },
@@ -163,70 +163,70 @@
         "completed_workout_exercises_1": {
             "exercise_set_1": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135",
-                "rep_performed": "6",
-                "weight_performed": "115"
+                "rep_expected": 8,
+                "weight_expected": 135,
+                "rep_performed": 6,
+                "weight_performed": 115
             },
             "exercise_set_2": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135",
-                "rep_performed": "6",
-                "weight_performed": "115"
+                "rep_expected": 8,
+                "weight_expected": 135,
+                "rep_performed": 6,
+                "weight_performed": 115
             },
             "exercise_set_3": {
                 "exercise": "exercise_1",
-                "rep_expected": "8",
-                "weight_expected": "135",
-                "rep_performed": "6",
-                "weight_performed": "115"
+                "rep_expected": 8,
+                "weight_expected": 135,
+                "rep_performed": 6,
+                "weight_performed": 115
             }
         },
         "completed_workout_exercises_2": {
             "exercise_set_1": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105",
-                "rep_performed": "6",
-                "weight_performed": "95"
+                "rep_expected": 8,
+                "weight_expected": 105,
+                "rep_performed": 6,
+                "weight_performed": 95
             },
             "exercise_set_2": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105",
-                "rep_performed": "6",
-                "weight_performed": "95"
+                "rep_expected": 8,
+                "weight_expected": 105,
+                "rep_performed": 6,
+                "weight_performed": 95
             },
             "exercise_set_3": {
                 "exercise": "exercise_2",
-                "rep_expected": "8",
-                "weight_expected": "105",
-                "rep_performed": "6",
-                "weight_performed": "95"
+                "rep_expected": 8,
+                "weight_expected": 105,
+                "rep_performed": 6,
+                "weight_performed": 95
             }
         },
         "completed_workout_exercises_3": {
             "exercise_set_1": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225",
-                "rep_performed": "3",
-                "weight_performed": "255"
+                "rep_expected": 8,
+                "weight_expected": 225,
+                "rep_performed": 3,
+                "weight_performed": 255
             },
             "exercise_set_2": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225",
-                "rep_performed": "3",
-                "weight_performed": "255"
+                "rep_expected": 8,
+                "weight_expected": 225,
+                "rep_performed": 3,
+                "weight_performed": 255
             },
             "exercise_set_3": {
                 "exercise": "exercise_3",
-                "rep_expected": "8",
-                "weight_expected": "225",
-                "rep_performed": "3",
-                "weight_performed": "255"
+                "rep_expected": 8,
+                "weight_expected": 225,
+                "rep_performed": 3,
+                "weight_performed": 255
             }
         }
     }

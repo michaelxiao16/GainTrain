@@ -1,5 +1,9 @@
 package xmts.gaintrain.Models;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.PropertyName;
+
 /**
  * Created by xu on 3/3/18
  *
@@ -7,13 +11,22 @@ package xmts.gaintrain.Models;
  */
 
 public class ExerciseSet {
+    @Exclude
     private Exercise exercise;
+    @PropertyName("rep_expected")
     private int repsExpected;
     // lbs by default
+    @PropertyName("weight_expected")
     private double weightExpected;
 
+    @PropertyName("reps_performed")
     private int repsPerformed = -1;
+    @PropertyName("weight_performed")
     private double weightPerformed = -1;
+
+    public ExerciseSet() {
+
+    }
 
     public ExerciseSet(Exercise exercise, int repsExpected, double weightExpected) {
         this.exercise = exercise;
@@ -21,6 +34,7 @@ public class ExerciseSet {
         this.weightExpected = weightExpected;
     }
 
+    @Exclude
     public Exercise getExercise() {
         return exercise;
     }
@@ -29,6 +43,7 @@ public class ExerciseSet {
         this.exercise = exercise;
     }
 
+    @PropertyName("rep_expected")
     public int getRepsExpected() {
         return repsExpected;
     }
@@ -37,6 +52,7 @@ public class ExerciseSet {
         this.repsExpected = repsExpected;
     }
 
+    @PropertyName("weight_expected")
     public double getWeightExpected() {
         return weightExpected;
     }
@@ -45,6 +61,7 @@ public class ExerciseSet {
         this.weightExpected = weightExpected;
     }
 
+    @PropertyName("reps_performed")
     public int getRepsPerformed() {
         return repsPerformed;
     }
@@ -53,6 +70,7 @@ public class ExerciseSet {
         this.repsPerformed = repsPerformed;
     }
 
+    @PropertyName("weight_performed")
     public double getWeightPerformed() {
         return weightPerformed;
     }

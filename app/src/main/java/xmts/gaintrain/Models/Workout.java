@@ -12,8 +12,7 @@ import java.util.List;
 
 public class Workout{
 
-    public static final String NAME_KEY = "name";
-    public static final String WORKOUT_EXERCISES_KEY = "workout_exercises";
+    public static final String WORKOUT_NAME_KEY = "name";
 
     @PropertyName("name")
     private String name;
@@ -28,18 +27,18 @@ public class Workout{
     }
 
     public Workout(DataSnapshot snapshot) {
+        this.workoutExercises = new ArrayList<>(10);
+        this.workoutExercisesKeys = new ArrayList<>(10);
 
-        if (snapshot.hasChild(NAME_KEY)) {
-            name = ((String) snapshot.child(NAME_KEY).getValue());
+        if (snapshot.hasChild(WORKOUT_NAME_KEY)) {
+            name = ((String) snapshot.child(WORKOUT_NAME_KEY).getValue());
         }
 
-        if (snapshot.hasChild(WORKOUT_EXERCISES_KEY)) {
-            ArrayList<String> workoutExercisesKeys = new ArrayList<>(10);
-            for (DataSnapshot ds : snapshot.child(WORKOUT_EXERCISES_KEY).getChildren()) {
-                workoutExercisesKeys.add(ds.getKey());
+        if (snapshot.hasChild(WorkoutExercise.WORKOUT_EXERCISES_KEY)) {
+            for (DataSnapshot ds : snapshot.child(WorkoutExercise.WORKOUT_EXERCISES_KEY).getChildren()) {
+                this.workoutExercisesKeys.add(ds.getKey());
+                workoutExercises.add(new WorkoutExercise(ds.getKey()));
             }
-
-            this.workoutExercisesKeys = workoutExercisesKeys;
         }
     }
 

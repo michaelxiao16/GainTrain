@@ -9,15 +9,27 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.database.SnapshotParser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import xmts.gaintrain.Fragments.ProfileFragment;
 import xmts.gaintrain.Fragments.StatisticsFragment;
 
 import xmts.gaintrain.Fragments.WorkoutFragment;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
+import xmts.gaintrain.Models.ExerciseSet;
 import xmts.gaintrain.Models.Passenger;
 import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
 import xmts.gaintrain.Utils.TestUtils;
+
+import static xmts.gaintrain.Models.WorkoutExercise.WORKOUT_EXERCISES_KEY;
 
 public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListFragmentListener {
 
@@ -55,8 +67,6 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TestUtils.getTestWorkoutHistory();
-
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -65,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
         // Chooses the home tab upon startup
         switchToHomeTab();
+
     }
 
     //region [ Activity Helpers ] ================================= //
@@ -78,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     //region [ Fragment Navigation ] ================================= //
     private void switchToWorkoutsTab() {
+
+
         //Workout fragment has a list of workouts and a listener
         WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(this);
 

@@ -53,7 +53,6 @@ public class WorkoutListRecyclerViewAdapter extends FirebaseRecyclerAdapter<Work
 
     @Override
     public void onDataChanged() {
-        mListener.hashCode();
         super.onDataChanged();
     }
 
