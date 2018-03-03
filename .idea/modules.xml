@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GainTrain.iml" filepath="$PROJECT_DIR$/GainTrain.iml" />
-      <module fileurl="file://C:\Users\micha\Desktop\GetAMoveOn\GainTrain\GetAMoveOnHackathon.iml" filepath="C:\Users\micha\Desktop\GetAMoveOn\GainTrain\GetAMoveOnHackathon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GetAMoveOnHackathon.iml" filepath="$PROJECT_DIR$/GetAMoveOnHackathon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\micha\Desktop\GetAMoveOn\GainTrain\app\app.iml" filepath="C:\Users\micha\Desktop\GetAMoveOn\GainTrain\app\app.iml" />
     </modules>
   </component>
 </project>
