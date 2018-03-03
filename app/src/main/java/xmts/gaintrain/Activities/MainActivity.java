@@ -16,9 +16,15 @@ import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
 import xmts.gaintrain.Utils.TestUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListFragmentListener {
 
     private TextView mTextMessage;
+
+    @Override
+    public void onWorkoutSelected(Workout w) {
+        //TODO: switch fragments to workout fragment view
+        //switchToWorkout();
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
         = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -74,11 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.main_activity_frame_layout, workoutListFragment)
                 .commit();
-
     }
 
     //endregion
-
     private void switchToHomeTab() {
         StatisticsFragment statisticsFragment = new StatisticsFragment();
         getSupportFragmentManager()

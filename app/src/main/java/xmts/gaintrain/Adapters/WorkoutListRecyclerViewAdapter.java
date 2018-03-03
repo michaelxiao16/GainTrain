@@ -1,10 +1,12 @@
 package xmts.gaintrain.Adapters;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,13 +19,36 @@ import xmts.gaintrain.R;
 
 public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<Workout> workoutList;
+    //listener for clicks to workout list
+    private WorkoutListAdapterListener mListener;
 
-    public WorkoutListRecyclerViewAdapter(List<Workout> workoutList) {
-        if (workoutList != null) {
-            this.workoutList = workoutList;
-        }
+    /**
+     * No args empty constructor
+     */
+    public WorkoutListRecyclerViewAdapter() {
     }
 
+    /**
+     * newInstance method for propagation of listener up to fragment then main activity
+     * @param workouts
+     * @param listener
+     * @return an instance of this class
+     */
+    public static WorkoutListRecyclerViewAdapter newInstance(List<Workout> workouts, WorkoutListAdapterListener listener) {
+        WorkoutListRecyclerViewAdapter adapter = new WorkoutListRecyclerViewAdapter();
+        adapter.workoutList= workouts;
+        adapter.mListener = listener;
+        return adapter;
+    }
+
+    /**
+     * interface to be impleneted by fragment,
+     */
+    public interface WorkoutListAdapterListener {
+        void onWorkoutClick();
+    }
+
+    //ViewHolder methods overriden
     @Override
     public WorkoutListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
@@ -33,6 +58,14 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((WorkoutListViewHolder) holder).bindData(workoutList.get(position));
+//        WorkoutListViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    WorkoutListRecyclerViewAdapter.
+//                }
+//            }
+//        })
     }
 
     @Override
@@ -52,6 +85,14 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
         public WorkoutListViewHolder(View itemView) {
             super(itemView);
             workoutNameTextView = (TextView) itemView.findViewById(R.id.workout_name_text_view);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.onWorkoutClick();
+//                    Toast toast=Toast.makeText( "Hello Javatpoint",Toast.LENGTH_SHORT);
+//                    toast.show();
+                }
+            });
         }
 
         public void bindData(Workout workout) {

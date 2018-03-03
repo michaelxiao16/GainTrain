@@ -10,6 +10,7 @@
         android:id="@+id/workout_list_recycler_view"
         >
 
+
     </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
