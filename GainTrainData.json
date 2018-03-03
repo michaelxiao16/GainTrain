@@ -1,27 +1,233 @@
 {
-    "Exercises": [
-      {
-        "name": "Bench Press",
-        "body_parts": [
-            {
-                "name": "chest"
+    "exercises": {
+        "exercise_1": {
+            "name": "Bench Press",
+            "body_parts": {
+                "chest": true,
+                "tricep": true
             },
-            {
-                "name": "tricep"
+            "exercise_type": {
+                "bar": true
+            },
+            "exercise_difficulty": {
+                "hard": true
             }
-        ],
-        "type": "bar",
-        "difficulty": "hard"
-      },
-      {
-        "name": "Squat",
-        "body_parts": [
-            {
-                "name": "legs"
+        },
+        "exercise_2": {
+            "name": "Incline Bench",
+            "body_parts": {
+                "chest": true,
+                "tricep": true
+            },
+            "exercise_type": {
+                "bar": true
+            },
+            "exercise_difficulty": {
+                "medium": true
             }
-        ],
-        "type": "bar",
-        "difficulty": "hard"
-      }
-    ]
+        },
+        "exercise_3": {
+            "name": "Squat",
+            "body_parts": {
+                "legs": true
+            },
+            "exercise_type": {
+                "bar": true
+            },
+            "exercise_difficulty": {
+                "hard": true
+            }
+        }
+    },
+    "body_part": {
+        "chest": "Chest",
+        "back": "Back",
+        "bicep": "Bicep",
+        "tricep": "Tricep",
+        "legs": "Legs"
+    },
+    "exercise_type": {
+        "bar": "Bar",
+        "bodyweight": "Bodyweight",
+        "dumbbell": "Dumbbell",
+        "machine": "Machine"
+    },
+    "exercise_difficulty": {
+        "easy": 0,
+        "medium": 1,
+        "hard": 2
+    },
+    "workouts": {
+        "workout_1": {
+            "name": "Chest Day",
+            "workout_exercises": {
+                "workout_exercises_1": true,
+                "workout_exercises_2": true
+            }
+        },
+        "workout_2": {
+            "name": "Leg Day",
+            "workout_exercises": {
+                "workout_exercises_3": true
+            }
+        },
+        "workout_3": {
+            "name": "Chest and Leg Day",
+            "workout_exercises": {
+                "workout_exercises_1": true,
+                "workout_exercises_2": true,
+                "workout_exercises_3": true
+            }
+        }
+    },
+    "workout_history": {
+        "workout_history_1": {
+            "date": "01/01/2018",
+            "name": "Chest Day",
+            "workout_exercises": {
+                "completed_workout_exercises_1": true,
+                "completed_workout_exercises_2": true
+            }
+        },
+        "workout_history_2": {
+            "date": "01/02/2018",
+            "name": "Chest Day",
+            "workout_exercises": {
+                "completed_workout_exercises_3": true
+            }
+        },
+        "workout_history_3": {
+            "date": "01/03/2018",
+            "name": "Chest and Leg Day",
+            "workout_exercises": {
+                "completed_workout_exercises_1": true,
+                "completed_workout_exercises_2": true,
+                "completed_workout_exercises_3": true
+            }
+        }
+    },
+    "workout_exercises": {
+        "workout_exercises_1": {
+            "exercise_set_1": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135"
+            }
+        },
+        "workout_exercises_2": {
+            "exercise_set_1": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105"
+            }
+        },
+        "workout_exercises_3": {
+            "exercise_set_1": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225"
+            }
+        }
+    },
+    "completed_workout_exercises": {
+        "completed_workout_exercises_1": {
+            "exercise_set_1": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135",
+                "rep_performed": "6",
+                "weight_performed": "115"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135",
+                "rep_performed": "6",
+                "weight_performed": "115"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_1",
+                "rep_expected": "8",
+                "weight_expected": "135",
+                "rep_performed": "6",
+                "weight_performed": "115"
+            }
+        },
+        "completed_workout_exercises_2": {
+            "exercise_set_1": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105",
+                "rep_performed": "6",
+                "weight_performed": "95"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105",
+                "rep_performed": "6",
+                "weight_performed": "95"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_2",
+                "rep_expected": "8",
+                "weight_expected": "105",
+                "rep_performed": "6",
+                "weight_performed": "95"
+            }
+        },
+        "completed_workout_exercises_3": {
+            "exercise_set_1": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225",
+                "rep_performed": "3",
+                "weight_performed": "255"
+            },
+            "exercise_set_2": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225",
+                "rep_performed": "3",
+                "weight_performed": "255"
+            },
+            "exercise_set_3": {
+                "exercise": "exercise_3",
+                "rep_expected": "8",
+                "weight_expected": "225",
+                "rep_performed": "3",
+                "weight_performed": "255"
+            }
+        }
+    }
 }
