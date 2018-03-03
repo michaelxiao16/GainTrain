@@ -19,30 +19,41 @@
             android:layout_marginTop="30dp"
             android:layout_marginHorizontal="30dp">
 
+
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/weeklybargraph"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="250dp"
+                />
+
             <TextView
                 android:id="@+id/textView2"
+                android:textSize="16sp"
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/days_on_train"/>
 
             <TextView
                 android:id="@+id/textView3"
+                android:textSize="16sp"
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/workouts_this_week" />
 
             <TextView
                 android:id="@+id/textView4"
+                android:textSize="16sp"
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/average_workout_length" />
 
             <TextView
                 android:id="@+id/textView5"
+                android:textSize="16sp"
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_volume" />

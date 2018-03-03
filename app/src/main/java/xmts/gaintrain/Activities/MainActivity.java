@@ -1,22 +1,20 @@
 package xmts.gaintrain.Activities;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import xmts.gaintrain.Fragments.ProfileFragment;
 import xmts.gaintrain.Fragments.StatisticsFragment;
-import java.util.ArrayList;
 
 import xmts.gaintrain.Fragments.WorkoutFragment;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
-import xmts.gaintrain.Models.Exercise;
+import xmts.gaintrain.Models.Passenger;
 import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
 import xmts.gaintrain.Utils.TestUtils;
@@ -24,11 +22,11 @@ import xmts.gaintrain.Utils.TestUtils;
 public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListFragmentListener {
 
     private TextView mTextMessage;
+    private Passenger mCurrentPassenger;
 
     @Override
     public void onWorkoutSelected(Workout w) {
         Toast.makeText(MainActivity.this, w.toString(), Toast.LENGTH_SHORT).show();
-        //Log.w("TAG", "workout " + w);
         switchToWorkout(w);
     }
 
@@ -44,7 +42,8 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
                 case R.id.bottom_nav_bar_workout:
                     switchToWorkoutsTab();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_profile:
+                    switchToProfileTab();
                     return true;
             }
             return false;
@@ -100,7 +99,16 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     }
 
-    // region [ Workout Naviation ] ================================ //
+    private void switchToProfileTab() {
+        ProfileFragment profileFragment = ProfileFragment.newInstance(mCurrentPassenger);
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_frame_layout, profileFragment)
+            .commit();
+
+    }
+
+    // region [ Workout Navigation ] ================================ //
     private void switchToWorkout(Workout w) {
         //Workout fragment has a list of workouts and a listener
         WorkoutFragment workoutFragment = WorkoutFragment.newInstance(w);

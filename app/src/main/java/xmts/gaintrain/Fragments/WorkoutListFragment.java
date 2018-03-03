@@ -23,12 +23,24 @@ import xmts.gaintrain.R;
  */
 public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.WorkoutListAdapterListener{
 
-    private List<Workout> workouts;
+    private List<Workout> mWorkouts;
     private RecyclerView mRecyclerView;
     private WorkoutListFragmentListener mListener;
 
     public WorkoutListFragment() {
         // Required empty public constructor
+    }
+
+    // new instance method for propagation of fragment listener up to activity
+    public static WorkoutListFragment newInstance(List<Workout> workouts, WorkoutListFragmentListener listener) {
+        Bundle args = new Bundle();
+        WorkoutListFragment fragment = new WorkoutListFragment();
+        fragment.setArguments(args);
+        fragment.mWorkouts = workouts;
+        if (listener != null) {
+            fragment.mListener = listener;
+        }
+        return fragment;
     }
 
     //interface for activity to implement, passes a workout to the activity
@@ -50,17 +62,6 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
 
 
     }
-    // new instance method for propagation of fragment listener up to activity
-    public static WorkoutListFragment newInstance(List<Workout> workouts, WorkoutListFragmentListener listener) {
-        Bundle args = new Bundle();
-        WorkoutListFragment fragment = new WorkoutListFragment();
-        fragment.setArguments(args);
-        fragment.workouts = workouts;
-        if (listener != null) {
-            fragment.mListener = listener;
-        }
-        return fragment;
-    }
 
     //Create and inflate recycler view, set the adapter to it
     @Override
@@ -72,7 +73,7 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
         // Create the recycler view and adapter for it
         mRecyclerView = (RecyclerView) view.findViewById(R.id.workout_list_recycler_view);
 
-        WorkoutListRecyclerViewAdapter adapter = WorkoutListRecyclerViewAdapter.newInstance(workouts, this);
+        WorkoutListRecyclerViewAdapter adapter = WorkoutListRecyclerViewAdapter.newInstance(mWorkouts, this);
         mRecyclerView.setAdapter(adapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
