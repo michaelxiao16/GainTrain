@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.mikephil.charting.charts.BarChart;
+
 import xmts.gaintrain.R;
 
 public class Statistics extends Fragment {
@@ -18,7 +20,10 @@ public class Statistics extends Fragment {
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.statistics_fragment, container, false);
+        View view = inflater.inflate(R.layout.statistics_fragment, container, false);
+
+        BarChart chart = (BarChart) view.findViewById(R.id.weeklybargraph);
+        return view;
     }
     @Override
     public void onPause() {
