@@ -19,12 +19,20 @@ public class TestUtils {
         List<Exercise> exerciseList = getTestExerciseList();
 
         ArrayList<ExerciseSet> exerciseSetWithOneExercise = new ArrayList<>(2);
+
+        // Doing 3 sets of 8 reps of exercise[0] at 185lbs
+        exerciseSetWithOneExercise.add(new ExerciseSet(exerciseList.get(0), 8, 185));
+        exerciseSetWithOneExercise.add(new ExerciseSet(exerciseList.get(0), 8, 185));
         exerciseSetWithOneExercise.add(new ExerciseSet(exerciseList.get(0), 8, 185));
 
         ArrayList<ExerciseSet> exerciseSetWithTwoExercises = new ArrayList<>(2);
-        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(0), 12, 135));
-        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(1), 12, 225));
 
+        // Doing 2 sets of 12 reps of exercise[0] at 135lbs
+        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(0), 12, 135));
+        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(0), 12, 135));
+
+        // and doing 1 sets of 12 reps of exercise[1] at 225lbs
+        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(1), 12, 225));
 
         ArrayList<Workout> workouts = new ArrayList<>(2);
 
