@@ -17,12 +17,20 @@ import xmts.gaintrain.R;
 
 public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<Workout> workoutList;
+    //listener for clicks to workout list
+    private onClickListener mListener;
 
     public WorkoutListRecyclerViewAdapter(List<Workout> workoutList) {
         if (workoutList != null) {
             this.workoutList = workoutList;
         }
     }
+
+    //interface to pass data to fragment
+    public interface onClickListener {
+        void onClick();
+    }
+
 
     @Override
     public WorkoutListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,6 +41,14 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((WorkoutListViewHolder) holder).bindData(workoutList.get(position));
+        WorkoutListViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    WorkoutListRecyclerViewAdapter.
+                }
+            }
+        })
     }
 
     @Override

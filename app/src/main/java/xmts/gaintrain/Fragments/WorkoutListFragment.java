@@ -1,6 +1,8 @@
 package xmts.gaintrain.Fragments;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -19,13 +21,41 @@ import xmts.gaintrain.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WorkoutListFragment extends android.support.v4.app.Fragment {
+public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.onClickListener{
 
     private List<Workout> workouts;
     private RecyclerView mRecyclerView;
+    private WorkoutListFragmentListener mlistener;
 
     public WorkoutListFragment() {
         // Required empty public constructor
+    }
+    //Create new instance method to pass data from from workoutlistfragment listener to activity
+    public static WorkoutListFragment newInstance(WorkoutListFragmentListener listener) {
+        Bundle args = new Bundle();
+        WorkoutListFragment fragment = new WorkoutListFragment();
+        fragment.setArguments(args);
+        if (listener != null) {
+            fragment.mlistener = listener;
+        }
+        return fragment;
+    }
+
+    //interface for passing data to activity
+    public interface WorkoutListFragmentListener {
+        public void onWorkoutSelected(Workout w);
+    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity activity = context instanceof Activity ? (Activity) context : null;
+    }
+
+    //interface for talking to adapter
+    @Override
+    public void onClick() {
+        //TODO: get data from listener, send to fragment
+        switc
     }
 
     public static WorkoutListFragment newInstance(List<Workout> workouts) {
