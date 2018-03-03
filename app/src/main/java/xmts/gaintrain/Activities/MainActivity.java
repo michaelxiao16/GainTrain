@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     @Override
     public void onWorkoutSelected(Workout w) {
         Toast.makeText(MainActivity.this, w.toString(), Toast.LENGTH_SHORT).show();
+        //Log.w("TAG", "workout " + w);
         switchToWorkout(w);
     }
 

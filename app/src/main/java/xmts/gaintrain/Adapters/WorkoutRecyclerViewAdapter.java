@@ -1,6 +1,7 @@
 package xmts.gaintrain.Adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +24,9 @@ public class WorkoutRecyclerViewAdapter extends RecyclerView.Adapter {
     public WorkoutRecyclerViewAdapter() {
     }
 
-    public static WorkoutRecyclerViewAdapter newInstance() {
+    public static WorkoutRecyclerViewAdapter newInstance(Workout w) {
         WorkoutRecyclerViewAdapter adapter = new WorkoutRecyclerViewAdapter();
+        adapter.workout = w;
         return adapter;
     }
 
@@ -42,12 +44,12 @@ public class WorkoutRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.workout_list_item_view;
+        return R.layout.workoutexercise_item_view;
     }
 
     @Override
     public int getItemCount() {
-        //TODO: not really implemented, we don't exactly have a list
+        Log.w("TAGURSELF", "" + workout);
         return workout.getWorkoutExercises().size();
     }
 
@@ -57,7 +59,7 @@ public class WorkoutRecyclerViewAdapter extends RecyclerView.Adapter {
 
         public WorkoutViewHolder(View itemView) {
             super(itemView);
-            workoutExerciseTextView = (TextView) itemView.findViewById(R.id.workout_name_text_view);
+            workoutExerciseTextView = (TextView) itemView.findViewById(R.id.workoutexercise_text_view);
 //            itemView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View view) {

@@ -68,7 +68,7 @@ public class WorkoutFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_workout, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.workout_recycler_view);
-        WorkoutRecyclerViewAdapter adapter = WorkoutRecyclerViewAdapter.newInstance();
+        WorkoutRecyclerViewAdapter adapter = WorkoutRecyclerViewAdapter.newInstance(workout);
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
