@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import xmts.gaintrain.Adapters.WorkoutListRecyclerViewAdapter;
 import xmts.gaintrain.Models.Workout;
@@ -33,12 +34,25 @@ import xmts.gaintrain.Utils.FirebaseUtils;
  */
 public class WorkoutListFragment extends android.support.v4.app.Fragment implements WorkoutListRecyclerViewAdapter.WorkoutListAdapterListener{
 
+    private List<Workout> mWorkouts;
     private RecyclerView mRecyclerView;
     private FirebaseRecyclerAdapter mAdapter;
     private WorkoutListFragmentListener mListener;
 
     public WorkoutListFragment() {
         // Required empty public constructor
+    }
+
+    // new instance method for propagation of fragment listener up to activity
+    public static WorkoutListFragment newInstance(List<Workout> workouts, WorkoutListFragmentListener listener) {
+        Bundle args = new Bundle();
+        WorkoutListFragment fragment = new WorkoutListFragment();
+        fragment.setArguments(args);
+        fragment.mWorkouts = workouts;
+        if (listener != null) {
+            fragment.mListener = listener;
+        }
+        return fragment;
     }
 
     //interface for activity to implement, passes a workout to the activity
@@ -71,16 +85,6 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
         super.onStop();
         mAdapter.stopListening();
     }
-
-    // new instance method for propagation of fragment listener up to activity
-    public static WorkoutListFragment newInstance(WorkoutListFragmentListener listener) {
-        Bundle args = new Bundle();
-        WorkoutListFragment fragment = new WorkoutListFragment();
-        fragment.setArguments(args);
-        if (listener != null) {
-            fragment.mListener = listener;
-        }
-        return fragment; }
 
     //Create and inflate recycler view, set the adapter to it
     @Override

@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import xmts.gaintrain.Fragments.ProfileFragment;
 import xmts.gaintrain.Fragments.StatisticsFragment;
-import java.util.ArrayList;
+
+import xmts.gaintrain.Fragments.WorkoutFragment;
 import xmts.gaintrain.Fragments.WorkoutListFragment;
-import xmts.gaintrain.Models.Exercise;
+import xmts.gaintrain.Models.Passenger;
 import xmts.gaintrain.Models.Workout;
 import xmts.gaintrain.R;
 import xmts.gaintrain.Utils.TestUtils;
@@ -20,12 +22,12 @@ import xmts.gaintrain.Utils.TestUtils;
 public class MainActivity extends AppCompatActivity implements WorkoutListFragment.WorkoutListFragmentListener {
 
     private TextView mTextMessage;
+    private Passenger mCurrentPassenger;
 
     @Override
     public void onWorkoutSelected(Workout w) {
-        //TODO: switch fragments to workout fragment view
         Toast.makeText(MainActivity.this, w.toString(), Toast.LENGTH_SHORT).show();
-        //switchToWorkout();
+        switchToWorkout(w);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -38,9 +40,10 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
                     switchToHomeTab();
                     return true;
                 case R.id.bottom_nav_bar_workout:
-                    switchToWorkoutTab();
+                    switchToWorkoutsTab();
                     return true;
-                case R.id.navigation_notifications:
+                case R.id.navigation_profile:
+                    switchToProfileTab();
                     return true;
             }
             return false;
@@ -74,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     //endregion
 
     //region [ Fragment Navigation ] ================================= //
-    private void switchToWorkoutTab() {
+    private void switchToWorkoutsTab() {
         //Workout fragment has a list of workouts and a listener
         WorkoutListFragment workoutListFragment = WorkoutListFragment.newInstance(this);
 
@@ -92,6 +95,25 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
             .replace(R.id.main_activity_frame_layout, statisticsFragment)
             .commit();
 
+    }
+
+    private void switchToProfileTab() {
+        ProfileFragment profileFragment = ProfileFragment.newInstance(mCurrentPassenger);
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_frame_layout, profileFragment)
+            .commit();
+
+    }
+
+    // region [ Workout Navigation ] ================================ //
+    private void switchToWorkout(Workout w) {
+        //Workout fragment has a list of workouts and a listener
+        WorkoutFragment workoutFragment = WorkoutFragment.newInstance(w);
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.main_activity_frame_layout, workoutFragment)
+            .commit();
     }
 
 }

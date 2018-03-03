@@ -2,14 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="xmts.gaintrain.Fragments.WorkoutListFragment">
+    tools:context="xmts.gaintrain.Fragments.ProfileFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/workout_list_recycler_view"
+    <TextView
+        android:id="@+id/profileUserName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
-
-    </android.support.v7.widget.RecyclerView>
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>
