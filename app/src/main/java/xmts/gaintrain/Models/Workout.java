@@ -10,19 +10,20 @@ import java.util.List;
 public class Workout {
 
     private String name;
-    private List<Exercise> exercises;
+    // List of ExerciseSets performed
+    private List<ExerciseSet> exerciseSets;
 
-    public Workout(String name, List<Exercise> exercises) {
+    public Workout(String name, List<ExerciseSet> exerciseSets) {
         this.name = name;
-        this.exercises = exercises;
+        this.exerciseSets = exerciseSets;
     }
 
-    public List<Exercise> getExercises() {
-        return exercises;
+    public List<ExerciseSet> getExerciseSets() {
+        return exerciseSets;
     }
 
-    public void setExercises(List<Exercise> exercises) {
-        this.exercises = exercises;
+    public void setExerciseSets(List<ExerciseSet> exerciseSets) {
+        this.exerciseSets = exerciseSets;
     }
 
     public String getName() {

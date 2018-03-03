@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import xmts.gaintrain.Models.Exercise;
+import xmts.gaintrain.Models.ExerciseSet;
 import xmts.gaintrain.Models.Workout;
+import xmts.gaintrain.Models.WorkoutExercise;
 
 /**
  * Created by xu on 3/2/18.
@@ -13,6 +15,26 @@ import xmts.gaintrain.Models.Workout;
 public class TestUtils {
 
     public static List<Workout> getTestWorkoutList() {
+
+        List<Exercise> exerciseList = getTestExerciseList();
+
+        ArrayList<ExerciseSet> exerciseSetWithOneExercise = new ArrayList<>(2);
+        exerciseSetWithOneExercise.add(new ExerciseSet(exerciseList.get(0), 8, 185));
+
+        ArrayList<ExerciseSet> exerciseSetWithTwoExercises = new ArrayList<>(2);
+        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(0), 12, 135));
+        exerciseSetWithTwoExercises.add(new ExerciseSet(exerciseList.get(1), 12, 225));
+
+
+        ArrayList<Workout> workouts = new ArrayList<>(2);
+
+        workouts.add(new Workout("Workout 1", exerciseSetWithOneExercise));
+        workouts.add(new Workout("Workout 2", exerciseSetWithTwoExercises));
+
+        return workouts;
+    }
+
+    public static List<Exercise> getTestExerciseList() {
 
         List<Exercise.BodyParts> benchParts = new ArrayList<>(0);
         benchParts.add(Exercise.BodyParts.chest);
@@ -31,19 +53,11 @@ public class TestUtils {
                 Exercise.ExerciseType.bar,
                 Exercise.Difficulty.hard);
 
-        ArrayList<Exercise> oneExercise = new ArrayList<>(2);
-        oneExercise.add(bench);
+        ArrayList<Exercise> exerciseList = new ArrayList<>(2);
+        exerciseList.add(bench);
+        exerciseList.add(squat);
 
-        ArrayList<Exercise> twoExercise = new ArrayList<>(2);
-        oneExercise.add(bench);
-        oneExercise.add(squat);
-
-        ArrayList<Workout> workouts = new ArrayList<>(2);
-
-        workouts.add(new Workout("Workout 1", oneExercise));
-        workouts.add(new Workout("Workout 2", twoExercise));
-
-        return workouts;
+        return exerciseList;
     }
 
 }
