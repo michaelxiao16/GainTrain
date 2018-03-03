@@ -47,6 +47,7 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment {
         View view = inflater.inflate(R.layout.fragment_workout_list, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.workout_list_recycler_view);
+
         WorkoutListRecyclerViewAdapter adapter = new WorkoutListRecyclerViewAdapter(workouts);
         mRecyclerView.setAdapter(adapter);
 

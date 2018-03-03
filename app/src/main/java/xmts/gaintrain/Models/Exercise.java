@@ -1,5 +1,7 @@
 package xmts.gaintrain.Models;
 
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -95,5 +97,14 @@ public class Exercise {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    @Override
+    public String toString() {
+        if (exerciseName != null) {
+            return exerciseName;
+        }
+
+        return super.toString();
     }
 }

@@ -1,29 +1,28 @@
 package xmts.gaintrain.Models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by xu on 3/2/18
  */
 
-public class Workout {
+public class Workout{
 
     private String name;
     // List of ExerciseSets performed
-    private List<ExerciseSet> exerciseSets;
+    private List<WorkoutExercise> workoutExercises;
 
-    public Workout(String name, List<ExerciseSet> exerciseSets) {
+    public Workout(String name, List<WorkoutExercise> workoutExercises) {
         this.name = name;
-        this.exerciseSets = exerciseSets;
+        this.workoutExercises = workoutExercises;
     }
 
-    public List<ExerciseSet> getExerciseSets() {
-        return exerciseSets;
+    public List<WorkoutExercise> getWorkoutExercises() {
+        return workoutExercises;
     }
 
-    public void setExerciseSets(List<ExerciseSet> exerciseSets) {
-        this.exerciseSets = exerciseSets;
+    public void setWorkoutExercises(List<WorkoutExercise> workoutExercises) {
+        this.workoutExercises = workoutExercises;
     }
 
     public String getName() {
@@ -32,5 +31,10 @@ public class Workout {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

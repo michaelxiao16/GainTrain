@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TestUtils.getTestWorkoutHistory();
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_nav_bar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

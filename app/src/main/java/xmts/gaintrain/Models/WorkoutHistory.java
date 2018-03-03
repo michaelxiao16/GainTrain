@@ -37,5 +37,13 @@ public class WorkoutHistory {
     public void setWorkoutExercises(List<WorkoutExercise> workoutExercises) {
         this.workoutExercises = workoutExercises;
     }
+
+    @Override
+    public String toString() {
+        if (dateCompleted != null) {
+            return dateCompleted;
+        }
+        return super.toString();
+    }
 }
 
