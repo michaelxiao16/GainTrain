@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
 
     @Override
     public void onWorkoutSelected(Workout w) {
-        //TODO: switch fragments to workout fragment view
         Toast.makeText(MainActivity.this, w.toString(), Toast.LENGTH_SHORT).show();
-        switchToWorkout();
+        switchToWorkout(w);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -100,9 +99,9 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     }
 
     // region [ Workout Naviation ] ================================ //
-    private void switchToWorkout() {
+    private void switchToWorkout(Workout w) {
         //Workout fragment has a list of workouts and a listener
-        WorkoutFragment workoutFragment = new WorkoutFragment();
+        WorkoutFragment workoutFragment = WorkoutFragment.newInstance(w);
         getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.main_activity_frame_layout, workoutFragment)
