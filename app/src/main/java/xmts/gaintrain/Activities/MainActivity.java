@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
     @Override
     public void onWorkoutSelected(Workout w) {
         //TODO: switch fragments to workout fragment view
-        switchToWorkout();
+        //switchToWorkout();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

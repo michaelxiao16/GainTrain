@@ -41,14 +41,14 @@ public class WorkoutListRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((WorkoutListViewHolder) holder).bindData(workoutList.get(position));
-        WorkoutListViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    WorkoutListRecyclerViewAdapter.
-                }
-            }
-        })
+//        WorkoutListViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    WorkoutListRecyclerViewAdapter.
+//                }
+//            }
+//        })
     }
 
     @Override

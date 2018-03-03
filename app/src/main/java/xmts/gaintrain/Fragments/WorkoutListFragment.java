@@ -55,7 +55,7 @@ public class WorkoutListFragment extends android.support.v4.app.Fragment impleme
     @Override
     public void onClick() {
         //TODO: get data from listener, send to fragment
-        switc
+
     }
 
     public static WorkoutListFragment newInstance(List<Workout> workouts) {
